@@ -91,7 +91,7 @@ export const CursorZoom: React.FC<{
   );
 };
 
-// 3D tilt with a glare sweep that follows the tilt (the vanilla-tilt look, frame-driven).
+// 3D tilt with a glare sweep that follows the tilt, frame-driven.
 export const Tilt3D: React.FC<{
   from?: [number, number];
   to?: [number, number];

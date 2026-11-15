@@ -2,7 +2,7 @@
 import React from "react";
 import { interpolate, random, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
-// Letters or words rise in with a spring and a blur that clears (the Splitting look).
+// Letters or words rise in with a spring and a blur that clears.
 export const SplitText: React.FC<{
   text: string;
   by?: "letters" | "words";

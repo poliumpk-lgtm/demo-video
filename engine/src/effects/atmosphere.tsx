@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig } from "remotion";
 import { noise2D, noise3D } from "@remotion/noise";
 
-// Soft blobs drifting on noise, blurred together (the Granim / mesh gradient look).
+// Mesh gradient: soft blobs drifting on noise, blurred together.
 export const MeshGradient: React.FC<{ colors?: string[]; base?: string; speed?: number; seed?: string }> = ({
   colors = ["#3B5BDB", "#7C9CFF", "#5EE6B0", "#9B5DE5"],
   base = "#0B0D10",

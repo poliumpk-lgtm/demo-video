@@ -87,11 +87,9 @@ node scripts/qa.mjs demos/acme --video out/demo.mp4       # checks
 File formats: [references/flow-format.md](references/flow-format.md). Effects: [references/effects.md](references/effects.md). Your own payoff move: [references/custom-payoffs.md](references/custom-payoffs.md).
 </details>
 
-## License and credits
+## License
 
 The code is MIT ([LICENSE](LICENSE)). It renders with [Remotion](https://remotion.dev), which has its own license: free for individuals and small teams, while larger companies need a Remotion company license. Check [remotion.dev/license](https://remotion.dev/license).
-
-The method draws on two articles about motion work with AI: one on turning references into rules (beamnxw), and one on the ways AI-made video goes wrong and how to check for them (m4lkxx). The effects rebuild looks popularised by Rough Notation, Splitting, Typed.js, vanilla-tilt and others as frame-driven Remotion components; no code was copied. The X feed layout numbers in the Polium Split example come from [winchxyz/pasteup](https://github.com/winchxyz/pasteup) (MIT).
 
 Brands, logos and fonts belong to their owners. The tool uses your own brand files for your own videos, and none are bundled.
 

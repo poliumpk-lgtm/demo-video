@@ -1,4 +1,4 @@
-// Hand-drawn annotations (the Rough Notation look) and self-drawing connector lines.
+// Hand-drawn annotations and self-drawing connector lines.
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { continueRender, delayRender, interpolate, random, useCurrentFrame } from "remotion";
 import { evolvePath } from "@remotion/paths";
