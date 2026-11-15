@@ -57,7 +57,7 @@ Look at `cap/` yourself. If a toast, cookie banner or popup is in the shots, add
 
 `references/concepts.md` has the angles, the platform table and the script rules. In short:
 
-- Write **three concepts**, each a different angle (problem → fix, speed run, before/after, the number, a meme...). Each: a one-line pitch, the hook lines, the flow, the payoff, length.
+- Write **three concepts**, each a different angle (problem → fix, speed run, before/after, the number, a meme...) **with a different opener** (`hook.style`: words, result, cold, type, number, split, logo). Each: a one-line pitch, the opener, the flow, the payoff, length.
 - **Show each as a storyboard of real frames**: write each concept as `demos/<name>/concepts/A.json`, `B.json`, `C.json` (a `pitch` line plus what differs: hook, which steps and in what order via `use`, payoff, close; format in `references/flow-format.md`), then `node scripts/storyboard.mjs demos/<name>` and show `storyboard.png`. They choose by looking, not by reading a table.
 - They pick one or mix ("B with A's hook"). Merge the pick into `flow.json` (or keep rendering with `--concept B`). Then write the **frame-numbered shot script** into `brief.md` (`render.mjs --beats` prints the frames), check it against the rules, and ask only for facts you cannot know: the closing line (offer three), the link or availability claim, music (they pick). Any number on screen must come from their real file, confirmed with them.
 - **"Approve this script?"** Build nothing before yes.

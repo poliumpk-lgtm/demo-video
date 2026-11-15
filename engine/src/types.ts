@@ -17,7 +17,14 @@ export type Step =
 export type Flow = {
   format?: { width?: number; height?: number; fps?: number };
   app: { url: string; viewport?: [number, number] };
-  hook?: { lines: string[]; beat?: number };
+  hook?: {
+    style?: "words" | "result" | "cold" | "type" | "number" | "split" | "logo";
+    lines?: string[];
+    beat?: number;
+    frames?: number;
+    focus?: string; // cold: step id to start tight on
+    number?: { value: number; from?: number; prefix?: string; suffix?: string; decimals?: number };
+  };
   steps: Step[];
   payoff?: { type?: "spotlight" | "none" | string; target?: string; text?: string; hold?: number; rects?: Record<string, string>; [k: string]: unknown };
   close?: { line?: string; url?: string; hold?: number };

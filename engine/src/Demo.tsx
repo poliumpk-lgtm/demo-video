@@ -5,6 +5,7 @@ import { AbsoluteFill, continueRender, delayRender, Easing, Img, interpolate, Se
 import { Annotate } from "./effects/annotate";
 import { Cursor } from "./effects/camera";
 import { PAYOFFS } from "./payoffs";
+import { OPENERS } from "./openers";
 import { PUSH } from "./timeline";
 import type { Brand, Props, Rect, Timeline } from "./types";
 
@@ -47,11 +48,16 @@ const sample = (keys: Key[], f: number) => {
   return keys[keys.length - 1];
 };
 
+// The wide shot of the app: the content box, fitted. The UI starts here.
+export const overviewOf = (cap: Props["cap"]) => {
+  const c = cap.content;
+  return { x: c.x + c.w / 2, y: c.y + c.h / 2, z: Math.max(1, Math.min(1.6, Math.min(cap.viewport.w / c.w, cap.viewport.h / c.h))) };
+};
+
 // Camera and cursor paths, derived from where the real targets are.
 const paths = ({ flow, cap }: Props, tl: Timeline) => {
   const { w: vw, h: vh } = cap.viewport;
-  const c = cap.content;
-  const overview = { x: c.x + c.w / 2, y: c.y + c.h / 2, z: Math.max(1, Math.min(1.6, Math.min(vw / c.w, vh / c.h))) };
+  const overview = overviewOf(cap);
   const cam: Key[] = [{ f: tl.ui[0], ...overview }];
   const cur: Key[] = [];
   const first = flow.steps[0];
@@ -245,7 +251,11 @@ export const Demo: React.FC<Props> = (props) => {
     <AbsoluteFill style={{ background: brand.colors.bg }}>
       {tl.hook ? (
         <Sequence durationInFrames={tl.hook[1]}>
-          <Hook brand={brand} lines={flow.hook!.lines} beat={flow.hook?.beat ?? 16} />
+          {(() => {
+            const style = flow.hook?.style ?? "words";
+            const O = OPENERS[style];
+            return style === "words" || !O ? <Hook brand={brand} lines={flow.hook?.lines ?? []} beat={flow.hook?.beat ?? 16} /> : <O props={props} tl={tl} />;
+          })()}
         </Sequence>
       ) : null}
       <Sequence from={tl.ui[0]} durationInFrames={tl.ui[1] - tl.ui[0]}>

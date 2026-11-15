@@ -22,10 +22,24 @@ Most people get stuck on the script. So they never write one: they pick from thr
 | **The meme** | a known format, the product as the punchline | the audience is very online; check image rights |
 | **The question** | "what if X took one click?" | new category, people need the idea first |
 
+## Openers
+
+Not every video should open with big words. Pick the opener per concept (`hook.style`, formats in `flow-format.md`) and **give the three concepts three different openers**:
+
+| Opener | Use when |
+|---|---|
+| `words` | the idea fits in 2–4 punchy lines |
+| `result` | the result is visual and impressive on its own |
+| `cold` | the product looks good up close; no text needed |
+| `type` | the product takes a question or prompt (AI, search) |
+| `number` | there is one real, striking number |
+| `split` | before/after is the whole story |
+| `logo` | the brand insists; weakest on social |
+
 For each concept write:
 
 - **Pitch**: one line, why it lands for this audience.
-- **Hook**: 2–4 short lines (each one beat, ~0.5 s). Lowercase and punchy reads well; follow the brand's voice from `DESIGN.md`.
+- **Opener**: the style and its text (for `words`, 2–4 short lines, each one beat). Lowercase and punchy reads well; follow the brand's voice from `DESIGN.md`.
 - **Flow**: which captured steps, in what order, which one gets the zoom.
 - **Payoff**: the one moment the video exists for, and how it is shown (spotlight, or a custom move: `custom-payoffs.md`).
 - **Close**: logo + one line + where to get it.

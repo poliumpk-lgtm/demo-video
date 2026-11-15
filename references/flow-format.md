@@ -63,6 +63,22 @@ Every `target` and `app.waitFor` must be **visible** (non-zero size, on screen).
 
 Any step: `zoom` (camera zoom on the target; default automatic, `1` = stay wide) and `hold` (frames to hold after the action).
 
+### hook (the opener)
+
+`style` picks how the video opens. Frame 0 is always already readable: it is the thumbnail.
+
+| `style` | Keys | What it shows |
+|---|---|---|
+| `words` (default) | `lines`, `beat` | big kinetic lines, hard cuts on a beat, accent on the last line |
+| `result` | `lines` (0–2: a caption, then a second caption) | the finished result first, then a quick rewind into the walkthrough |
+| `cold` | `focus` (step id; default the payoff), `lines` (optional caption) | tight on a real detail of the finished screen, pulling back to the whole app, then a cut to the start |
+| `type` | `lines` (one line) | a question or prompt being typed, partly typed on frame 0 |
+| `number` | `number: {value, from, prefix, suffix, decimals}`, `lines` (a label) | a real result rolling up. **The number must come from the user's real file or data** |
+| `split` | `lines` (`["before", "after"]` labels, optional) | the start screen and the finished screen with a wipe crossing from before to after |
+| `logo` | none | a short logo sting. Rarely the strongest choice on social |
+
+`frames` overrides the opener's length.
+
 ### payoff
 `type: "spotlight"` (default) lifts the `target` region of the final screen out of the app and settles it big and flat, with an optional `text` caption. `type: "none"` skips it. Any other name is a custom payoff registered in `engine/src/payoffs/index.tsx` (see `custom-payoffs.md`).
 
@@ -74,7 +90,7 @@ Any step: `zoom` (camera zoom on the target; default automatic, `1` = stay wide)
 A concept is a partial flow merged over `flow.json`, used for the storyboards and for rendering the chosen version:
 
 ```json
-{ "pitch": "Problem → fix: X's gaps break your photo", "hook": { "lines": ["X cuts your photo.", "we hide the cuts."] },
+{ "pitch": "Problem → fix: X's gaps break your photo", "hook": { "style": "split", "lines": ["before", "after"] },
   "use": ["drop", "gaps", "download"], "payoff": { "type": "spotlight", "target": ".post", "text": "no jumps." } }
 ```
 

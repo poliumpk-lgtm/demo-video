@@ -32,7 +32,7 @@ You can also paste this repo's link into Claude Code (or any agent that can run 
 
 **3. Claude explores your product.** It clicks through it, finds the impressive moment, and checks with you: "Here's the flow I found. Right?"
 
-**4. You pick a concept instead of writing a script.** Three concepts, each a different angle, shown as storyboards of your own product. Pick one or mix them. Claude writes the frame-by-frame script and asks only for what it can't know (closing line, link, music). Nothing is built until you say yes.
+**4. You pick a concept instead of writing a script.** Three concepts, each a different angle with a different opener (big words, result first, a cold open on a real detail, a typed question, a real number rolling up, or a before/after wipe), shown as storyboards of your own product. Pick one or mix them. Claude writes the frame-by-frame script and asks only for what it can't know (closing line, link, music). Nothing is built until you say yes.
 
 ![Three concepts as storyboards](docs/storyboard.png)
 

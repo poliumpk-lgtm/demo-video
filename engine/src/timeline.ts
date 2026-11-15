@@ -1,6 +1,7 @@
 // Turns a flow into frame numbers. Every timing rule lives here, so the video,
 // the stills and the QA beats always agree.
 import type { Props, StepTiming, Timeline } from "./types";
+import { openerBeat, openerLength } from "./openers";
 
 export const PUSH = 10; // push-cut overlap between the UI and the payoff
 
@@ -12,16 +13,23 @@ export const buildTimeline = ({ flow, cap }: Props): Timeline => {
   const cuts: number[] = [];
   let t = 0;
 
-  // Hook: one line per beat, hard cuts. Frame 0 already shows the first line.
+  // Opener (flow.hook.style): words by default; result, cold, type, number, split, logo.
+  // Frame 0 is always already readable (it is the thumbnail).
   let hook: Timeline["hook"] = null;
+  const style = flow.hook?.style ?? "words";
   const lines = flow.hook?.lines ?? [];
-  if (lines.length) {
-    const beat = flow.hook?.beat ?? 16;
-    hook = [0, lines.length * beat];
-    beats.push({ frame: 0, name: "hook / thumbnail", mustSee: `"${lines[0]}" readable on frame 0` });
-    lines.forEach((l, i) => i && cuts.push(i * beat));
-    beats.push({ frame: hook[1] - 4, name: "hook end", mustSee: `"${lines[lines.length - 1]}" in the accent colour` });
-    t = hook[1];
+  const len = flow.hook ? openerLength({ flow, cap } as Props, fps) : 0;
+  if (len > 0) {
+    hook = [0, len];
+    beats.push({ frame: 0, name: `opener (${style}) / thumbnail`, mustSee: openerBeat({ flow, cap } as Props) });
+    if (style === "words") {
+      const beat = flow.hook?.beat ?? 16;
+      lines.forEach((l, i) => i && cuts.push(i * beat));
+      beats.push({ frame: len - 4, name: "opener end", mustSee: `"${lines[lines.length - 1]}" in the accent colour` });
+    } else {
+      beats.push({ frame: len - 6, name: "opener end", mustSee: openerBeat({ flow, cap } as Props) });
+    }
+    t = len;
     cuts.push(t);
   }
 
