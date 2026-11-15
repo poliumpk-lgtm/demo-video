@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+# generated per project
+demos/*/cap/
+demos/*/qa/
+demos/*/out/
+# logins saved by scripts/login.mjs
+auth.json
+.remotion/

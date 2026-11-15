@@ -1,0 +1,59 @@
+{
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "app": {
+    "url": "http://localhost:7843",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "hook": {
+    "lines": [
+      "one photo.",
+      "twenty frames.",
+      "zero seams."
+    ]
+  },
+  "steps": [
+    {
+      "id": "drop",
+      "do": "upload",
+      "input": "#file",
+      "target": "#drop",
+      "file": "assets/photo.jpg"
+    },
+    {
+      "id": "frames",
+      "do": "click",
+      "target": "#plus",
+      "times": 17
+    },
+    {
+      "id": "gaps",
+      "do": "point",
+      "target": "label.check",
+      "note": "circle"
+    },
+    {
+      "id": "download",
+      "do": "click",
+      "target": "#save"
+    }
+  ],
+  "payoff": {
+    "type": "split",
+    "frames": 20,
+    "target": ".post",
+    "rects": {
+      "row": "#rowwrap"
+    },
+    "hold": 88
+  },
+  "close": {
+    "line": "one photo. one seamless carousel."
+  }
+}
